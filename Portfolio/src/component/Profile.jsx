@@ -1,17 +1,50 @@
-import React from "react";
+import React, { useEffect,useRef} from "react";
 import profilepic from "../assets/pic.jpg";
+import * as THREE from "three";
+import Animation  from "../component/Animation";
+import WAVES from "vanta/dist/vanta.waves.min"; 
 const Profile = () => {
+    const vantaRef = useRef(null);
+  const effectRef = useRef(null);
+
+  useEffect(() => {
+    if (!effectRef.current) {
+      effectRef.current = WAVES({
+        el: vantaRef.current,
+        THREE: THREE,
+        mouseControls: true,
+        touchControls: true,
+        minHeight: 200.0,
+        minWidth: 200.0,
+        scale: 1.0,
+        scaleMobile: 1.0,
+        color: 0x0a0a0a,
+        backgroundColor: 0x0a0a23,
+        points: 10.0,
+        maxDistance: 20.0,
+        spacing: 15.0,
+      });
+    }
+    return () => {
+      if (effectRef.current) effectRef.current.destroy();
+    };
+  }, []);
+
   return (
-    <section className="bg-[#1a253f] w-full py-12">
+    <div >
+    <section ref={vantaRef} className="bg-[#060b1b] text-white flex flex-col md:flex-row items-center justify-between px-6 md:px-12 py-12 mt-16 clip-profile">
       {/* Left Side - profile and Info */}
-      <div className="max-w-6xl mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between clip-profile">
+      {/* <Animation /> */}
       <div className="flex items-center md:flex-row flex-col md:items-start">
         <div className="relative md:mr-8 mb-6 md:mb-0">
         <img src={profilepic} alt="Profile" className="w-32 h-32 rounded-full object-cover border-4 border-[#4d79fc]" />
         {/* profile ky uper comment ka icon */}
-        <span className="absolute right-0 bottom-0 w-8 h-8 bg-[#4d79fc] rounded-full flex items-center justify-center text-white text-sm shadow-md cursor-pointer">
-            <i className="fa fa-commenting-o" aria-hidden="true"></i> 
-          </span>
+         <span
+  onClick={() => window.open("https://wa.me/923170707926", "_blank")}
+  className="absolute right-0 bottom-0 w-8 h-8 bg-[#4d79fc] rounded-full flex items-center justify-center text-white text-sm shadow-md cursor-pointer"
+>
+  <i className="fa fa-commenting-o" aria-hidden="true"></i>
+</span>
           </div>
        
   <div className="text-center md:text-left">
@@ -44,8 +77,8 @@ const Profile = () => {
           </a>
         </div>
       </div>
-      </div>
     </section>
+    </div>
   );
 };
 

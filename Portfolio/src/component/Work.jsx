@@ -32,9 +32,9 @@ const Work = () => {
       : portfolioItems.filter((item) => item.category === filter);
 
   return (
-    <section className="bg-[#1a253f] text-white py-12 border-b border-gray-300 w-full">
+    <section className="bg-[#1a253f] text-white py-12  border-gray-300 w-full">
       <div className="max-w-6xl mx-auto px-4">
-        <h1 className="relative inline-block text-[16px] font-medium text-[#eff2f9] mb-12 section__heading">
+        <h1 className="relative inline-block text-[16px] font-semibold  text-[#eff2f9] mb-12 section__heading">
           My Work
           <span className="absolute left-0 bottom-[-3px] w-[70px] h-[3px] border-2 border-dashed border-[#7081b9]" />
         </h1>
@@ -95,12 +95,12 @@ const Work = () => {
               {filteredItems.map((item) => (
                 <div
                   key={item.id}
-                  className="border rounded overflow-hidden shadow"
+                  className="border rounded overflow-hidden shadow border border-[#28365f]"
                 >
                   <img
                     src="https://via.placeholder.com/200"
                     alt={`placeholder-${item.id}`}
-                    className="w-full h-40 object-cover"
+                    className="w-full h-40 object-cover "
                   />
                 </div>
               ))}

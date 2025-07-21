@@ -4,7 +4,7 @@ const About = () => {
   return (
     <section className="w-full bg-[#1a253f] py-12">
       <div className="max-w-[1140px] mx-auto px-4">
-      <h1 className="relative inline-block text-[16px] font-medium text-[#eff2f9] mb-12 section__heading">
+      <h1 className="relative inline-block text-[16px] font-semibold text-[#eff2f9] mb-12 section__heading">
   About Me!
   <span
     className="absolute left-0 bottom-[-3px] w-[70px] h-[3px] border-2 border-dashed border-[#7081b9]"

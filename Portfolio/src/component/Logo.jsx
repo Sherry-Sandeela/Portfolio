@@ -11,8 +11,8 @@ const Logo = () => {
       const logos = [
     pic1,pic2 ,pic3 ,pic4 ,pic5 ];
   return (
-    <section className="bg-[#1a253f] py-12 border-b border-gray-300 w-full" >
-        <div className="container mx-auto px-6">
+    <section className="bg-[#1a253f] py-12  border-gray-300 w-full" >
+        <div className="max-w-[1140px] mx-auto px-4">
             <div  className="brands__wrapper flex flex-wrap items-center justify-around gap-6">
                 {logos.map((logo,index)=>(
                     <img key={index}
